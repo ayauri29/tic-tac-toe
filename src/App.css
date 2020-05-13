@@ -1,17 +1,21 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
-html,body{
-  height: 100%;
+html{
+  min-height: 100%;
 }
 
-#root{
+body, #root{
   height: 100%;
 }
 h1{
   text-align: center;
-  color: crimson;
+  /* color: crimson; */
   font-family: 'Balsamiq Sans', cursive;
-  margin-top: 5%;
+  margin: 0;
+  background-color: crimson;
+  color: white;
+  padding: 1%;
+  margin-bottom: 2%;
 }
 
 .game-info{
@@ -168,10 +172,18 @@ li{
   font-size: 0.875rem;
 }
 
+footer{
+  font-family: 'Balsamiq Sans', cursive;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+
+}
 @media only screen and (min-width: 780px) {
-  h1{
+  /* h1{
     margin-top: 1%;
-  }
+  } */
   .game-container{
     flex-direction: row;
     align-items: center;

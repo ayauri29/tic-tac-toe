@@ -8,6 +8,7 @@ function App() {
     <Fragment>
       <h1>TIC-TAC-TOE</h1>
       <Game />
+      {/* <footer>© 2020 Copyright: Alba Yauri Ituccayasi</footer> */}
     </Fragment>
 
   );
