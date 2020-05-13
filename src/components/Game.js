@@ -62,55 +62,38 @@ export default class Game extends Component {
 		const moves = history.map((step, move) => {
 			const desc = move ? 'Go to #' + move : 'Start the Game';
 			return (
-				<li key={move}>
-					<button onClick={() => this.jumpTo(move)}>
+				<li className="li-moves" key={move}>
+					<button key={move} className="btn-moves" onClick={() => this.jumpTo(move)}>
 						{desc}
 					</button>
 				</li>
 			)
 		});
 
-		let buttonMov;
-		if(showMove) {
-			buttonMov = 'Contraer lista'
-		}
-		else {
-			buttonMov = 'Ver movimientos'
-		}
 		let status;
-		let isWinner;
+
 		if (winner) {
 			status = "Winner is" + winner;
-			isWinner = true;
+
 		} else {
 			status = "Next player is " + (this.state.xIsNext ? 'X' : 'O')
-			isWinner = false;
+
 		}
 		return (
-			
+
 			<div className="game">
-				<div className="game-board">
-					<Board onClick={(i) => this.handleClick(i)} squares={current.squares} />
+				<div className="info-winner">{status}</div>
+				<div className="game-container">
+					<div className="game-board">
+						<Board onClick={(i) => this.handleClick(i)} squares={current.squares} />
+					</div>
+					<div>{showMove}</div>
+					<div className="game-info">
+						<div className="moves">{moves}</div>
+					</div>
 				</div>
-				<div>{showMove}</div>
-				<div className="game-info">
-					{!isWinner &&
-						<div className="info-no-winner">{status}</div>
-					}
-					{isWinner &&
-						<div className="info-winner">{status}</div>
-					}
-					<button className="btn-move" onClick={() => this.showMoves()}>
-						{buttonMov}
-					</button>
-					{
-						showMove &&
-						<div>{moves}</div>
-					}
 
-				</div>
 			</div>
-
 		)
 	}
 }

@@ -1,6 +1,12 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
+html,body{
+  height: 100%;
+}
 
+#root{
+  height: 100%;
+}
 h1{
   text-align: center;
   color: crimson;
@@ -10,14 +16,6 @@ h1{
 
 .game-info{
   font-family: 'Balsamiq Sans', cursive;
-}
-
-.info-no-winner{
-  border: 1px solid black;
-  background-color: lightcoral;
-  padding: 6%;
-  width: 100%;
-  border-radius: 10px;
 }
 /*Square*/
 .square{
@@ -29,8 +27,8 @@ h1{
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
-  width: 80px;
-  height: 80px;
+  /* width: 80px;
+  height: 80px; */
   text-align: center;
   font-size: 40px;
   font-weight: bold;
@@ -56,9 +54,9 @@ container {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 80px);
-  grid-template-rows: repeat(3, 80px);
-  grid-gap: 5px;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  grid-gap: 10px;
 }
 
 .cell {
@@ -74,25 +72,45 @@ container {
 
 /*game*/
 .game{
-  position: absolute;
+  width: 100%;
+  /* justify-content: center; */
+  align-items: center;
+  /* position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  height: 100%;
 }
 
+.info-winner{
+  font-family: 'Balsamiq Sans', cursive;
+  font-size: 20px;
+  margin-bottom: 2%;
+
+}
+
+.game-container{
+  display: flex;
+  flex-direction: column;
+}
 /*Game info*/
 ol,ul{
   padding-left: 30px;
+  list-style-position: inside;
 }
 
 li{
   list-style: none;
 }
 .game-info{
-  margin-left: 28px;
+  margin: 28px;
+}
+
+.moves .li-moves:nth-child(n + 2){
+  display: flex;
 }
 
 .status{
@@ -112,13 +130,54 @@ li{
 }
 
 .btn-move:hover{
-  
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-
 }
+
+/*moves*/
+.moves{
+  background-color: #dc143cad;
+  padding: 11%;
+  border-radius: 10px;
+}
+
+.btn-moves{
+  font-family: 'Balsamiq Sans', cursive;
+  border: none;
+  background-color: #6ae8dcc9;;
+  padding: 6px 16px;
+ 
+  min-width: 64px;
+  box-sizing: border-box;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-weight: 500;
+
+  border-radius: 4px;
+  letter-spacing: 0.02857em;
+  box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12);
+  margin-bottom: 4%;
+  border: 1px solid;
+}
+
+.li-moves:nth-of-type(1) button{
+  font-family: 'Balsamiq Sans', cursive;
+  background-color: white;
+  margin-bottom: 10%;
+  text-transform: uppercase;
+  min-width: 172px;
+  line-height: 1.75;
+  font-size: 0.875rem;
+}
+
 @media only screen and (min-width: 780px) {
-  .game{
+  h1{
+    margin-top: 1%;
+  }
+  .game-container{
     flex-direction: row;
+    align-items: center;
   }
 
+  .moves{
+    width: 100%;
+  }
 }
